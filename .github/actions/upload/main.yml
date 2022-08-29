@@ -1,0 +1,20 @@
+name: Download artifact in dd
+
+# inputs:
+#   DD_URL:
+#     required: true
+#   DD_TOKEN:
+#     required: true
+#   DD_ENGAGEMENT_ID:
+#     required: true
+#   FILE_NAME:
+#     required: true
+#   SCAN_TYPE:
+#     required: true
+
+runs:
+  using: composite
+  steps:
+    - name: curl
+      shell:
+      run: echo "Hello WORLD!"
