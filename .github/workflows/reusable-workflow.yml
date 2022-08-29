@@ -5,7 +5,7 @@ on:
 jobs:
   trivy:
     name: trivy
-    runs-on: self-hosted
+    runs-on: ubuntu
     steps:
       - name: prep
         run: sudo chmod -R 777 /home/ec2-user/actions-runner/_work/security-vulnerable-app-example
