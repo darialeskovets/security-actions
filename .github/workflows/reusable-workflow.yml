@@ -7,6 +7,12 @@ jobs:
     name: trivy
     runs-on: ubuntu-latest
     steps:
+      - name: sfsd
+        run: |
+            pwd 
+            ls -la
+            ls -la ./
+        
       - uses: actions/checkout@v3
         with:
           repository: darialeskovets/test
