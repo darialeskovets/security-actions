@@ -1,15 +1,7 @@
 name: Scanners
 on:
   workflow_call:
-    secrets:
-      DD_URL:
-        required: true
-      DD_TOKEN:
-        required: true
-      SECURITY_WORKFLOW_GITHUB_TOKEN:
-        required: true
-        
-        
+           
 jobs:
   trivy:
     name: trivy
