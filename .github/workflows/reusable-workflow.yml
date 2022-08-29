@@ -7,13 +7,6 @@ jobs:
     name: trivy
     runs-on: ubuntu-latest
     steps:
-      - name: sfsd
-        run: |
-            sudo chmod -R 777 /home/runner/work/security-vulnerable-app-example/security-vulnerable-app-example
-            pwd 
-            ls -la
-            ls -la ./
-        
       - uses: actions/checkout@v3
         with:
           repository: darialeskovets/test
@@ -24,6 +17,13 @@ jobs:
           #token: ${{ secrets.GITHUB_TOKEN }}
           #lfs: true
           #token: ${{ secrets.SECURITY_WORKFLOW_GITHUB_TOKEN }}
+          
+      - name: sfsd
+        run: |
+            sudo chmod -R 777 /home/runner/work/security-vulnerable-app-example/security-vulnerable-app-example
+            pwd 
+            ls -la
+            ls -la ./
           
       - name: Upload
         uses: ./test/.github/actions/upload
