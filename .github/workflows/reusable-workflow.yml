@@ -1,0 +1,40 @@
+name: Scanners
+on:
+  workflow_call:
+    secrets:
+      DD_URL:
+        required: true
+      DD_TOKEN:
+        required: true
+      SECURITY_WORKFLOW_GITHUB_TOKEN:
+        required: true
+        
+        
+jobs:
+  trivy:
+    name: trivy
+    needs: dd
+    runs-on: self-hosted
+    steps:
+      - name: prep
+        run: sudo chmod -R 777 /home/ec2-user/actions-runner/_work/security-vulnerable-app-example
+        
+      - uses: actions/checkout@v3
+        with:
+          repository: darialeskovets/test
+          path: ./test
+          ref: main
+          #token: ${{ secrets.GITHUB_CUSTOM_TOKEN }}
+          #token: ${{ env.SECURITY_TOKEN }}
+          #token: ${{ secrets.GITHUB_TOKEN }}
+          #lfs: true
+          #token: ${{ secrets.SECURITY_WORKFLOW_GITHUB_TOKEN }}
+          
+       - name: Upload
+         uses: ./test/.github/actions/upload
+#          with:
+#           DD_URL: ${{ secrets.DD_URL }}
+#           DD_TOKEN: ${{ secrets.DD_TOKEN }}
+#           DD_ENGAGEMENT_ID: ${{ env.DD_ENGAGEMENT_ID }}
+#           FILE_NAME: "trivy-results.json"
+#           SCAN_TYPE: "Trivy Scan"
