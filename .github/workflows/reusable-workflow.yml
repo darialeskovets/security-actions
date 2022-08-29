@@ -18,14 +18,14 @@ jobs:
           #lfs: true
           #token: ${{ secrets.SECURITY_WORKFLOW_GITHUB_TOKEN }}
           
-      - name: sfsd
-        run: |
-            sudo chmod -R 777 /home/runner/work/security-vulnerable-app-example/security-vulnerable-app-example
-            pwd 
-            ls -la
-            ls -la ./
-            ls -la test
-            ls -la test/.github/actions/upload
+#       - name: sfsd
+#         run: |
+#             sudo chmod -R 777 /home/runner/work/security-vulnerable-app-example/security-vulnerable-app-example
+#             pwd 
+#             ls -la
+#             ls -la ./
+#             ls -la test
+#             ls -la test/.github/actions/upload
           
       - name: Upload
         uses: ./test/.github/actions/upload
