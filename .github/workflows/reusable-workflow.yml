@@ -13,7 +13,6 @@ on:
 jobs:
   trivy:
     name: trivy
-    needs: dd
     runs-on: self-hosted
     steps:
       - name: prep
@@ -30,8 +29,8 @@ jobs:
           #lfs: true
           #token: ${{ secrets.SECURITY_WORKFLOW_GITHUB_TOKEN }}
           
-       - name: Upload
-         uses: ./test/.github/actions/upload
+      - name: Upload
+        uses: ./test/.github/actions/upload
 #          with:
 #           DD_URL: ${{ secrets.DD_URL }}
 #           DD_TOKEN: ${{ secrets.DD_TOKEN }}
