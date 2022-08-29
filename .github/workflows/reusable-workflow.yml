@@ -7,9 +7,6 @@ jobs:
     name: trivy
     runs-on: ubuntu
     steps:
-      - name: prep
-        run: sudo chmod -R 777 /home/ec2-user/actions-runner/_work/security-vulnerable-app-example
-        
       - uses: actions/checkout@v3
         with:
           repository: darialeskovets/test
