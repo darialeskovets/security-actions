@@ -36,7 +36,7 @@ jobs:
       - name: Checkout 
         uses: actions/checkout@v3
         with: 
-          repository: ${{ repo_for_scan }}
+          repository: ${{ env.repo_for_scan }}
 
       - name: Run Trivy vulnerability scanner in repo mode
         uses: aquasecurity/trivy-action@master
