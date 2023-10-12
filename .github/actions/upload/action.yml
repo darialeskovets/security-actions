@@ -23,3 +23,4 @@ runs:
         ls -la
         ls -la test
         ls -la /home/runner/work/security-vulnerable-app-example
+        cat trivy-results.json
