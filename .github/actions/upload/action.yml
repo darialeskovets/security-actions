@@ -13,11 +13,11 @@ runs:
     - name: curl
       shell:
       run: |
-        echo ${{ secrets.PORTAL_URL }}
-        curl -s -D - --insecure -X POST "${{ secrets.PORTAL_URL }}/api/v1/scan/import/" \
+        echo ${{ inputs.PORTAL_URL }}
+        curl -s -D - --insecure -X POST "${{ inputs.PORTAL_URL }}/api/v1/scan/import/" \
           -H "accept: application/json" \
           -H "Content-Type: multipart/form-data" \
-          -H "Authorization: Token ${{ secrets.SEC_PORTAL_KEY }}"  \
+          -H "Authorization: Token ${{ inputs.SEC_PORTAL_KEY }}"  \
           -F "file=@${{ inputs.FILE_NAME }}" \
           -F "scanner_name=${{ inputs.SCAN_TYPE }}" \
           -F "product_name=$DOJO_PROJECT_NAME" \
