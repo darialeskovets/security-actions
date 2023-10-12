@@ -5,6 +5,7 @@ on:
       repo_for_scan:
         required: true
         type: string
+          
 jobs:
   trivy:
     name: trivy
