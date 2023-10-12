@@ -1,6 +1,10 @@
 name: Scanners
 on:
   workflow_call:
+    inputs:
+      repo_for_scan:
+        required: true
+        type: string
 
 # env:
 #   repo_for_scan: 
