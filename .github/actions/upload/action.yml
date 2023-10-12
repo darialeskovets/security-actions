@@ -17,4 +17,6 @@ runs:
   steps:
     - name: curl
       shell:
-      run: echo "Hello WORLD!"
+      run: |
+        echo "Hello WORLD!"
+        ls -la 
