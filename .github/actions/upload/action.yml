@@ -1,26 +1,15 @@
-name: Download artifact in dd
-
-# inputs:
-#   DD_URL:
-#     required: true
-#   DD_TOKEN:
-#     required: true
-#   DD_ENGAGEMENT_ID:
-#     required: true
-#   FILE_NAME:
-#     required: true
-#   SCAN_TYPE:
-#     required: true
-
+name: Upload report to Portal
 runs:
   using: composite
   steps:
     - name: curl
       shell:
       run: |
-        echo "Hello WORLD!"
-        pwd
-        ls -la
-        ls -la test
-        ls -la /home/runner/work/security-vulnerable-app-example
-        cat trivy-results.json
+        curl -s -D - --insecure -X POST "${{ secrets.PORTAL_URL }}/api/v1/scan/import/" \
+          -H "accept: application/json" \
+          -H "Content-Type: multipart/form-data" \
+          -H "Authorization: Token ${{ secrets.SEC_PORTAL_KEY }}"  \
+          -F "file=@${{ inputs.FILE_NAME }}" \
+          -F "scanner_name=${{ inputs.SCAN_TYPE }}" \
+          -F "product_name=$DOJO_PROJECT_NAME" \
+          -F "product_type=$DOJO_PROJECT_TYPE" |
