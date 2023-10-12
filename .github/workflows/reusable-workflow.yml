@@ -5,6 +5,11 @@ on:
       repo_for_scan:
         required: true
         type: string
+    secrets:
+      PORTAL_URL:
+        required: true
+      SEC_PORTAL_KEY:
+        required: true
           
 jobs:
   trivy:
@@ -47,3 +52,5 @@ jobs:
         with:
           FILE_NAME: "trivy-results.json"
           SCAN_TYPE: "Trivy Scan"
+          PORTAL_URL: ${{ secrets.PORTAL_URL }}
+          SEC_PORTAL_KEY: ${{ secrets.SEC_PORTAL_KEY }}
