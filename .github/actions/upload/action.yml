@@ -19,4 +19,6 @@ runs:
       shell:
       run: |
         echo "Hello WORLD!"
-        ls -la 
+        pwd
+        ls -la
+        ls -la test
