@@ -26,6 +26,15 @@ jobs:
 #             ls -la ./
 #             ls -la test
 #             ls -la test/.github/actions/upload
+
+      - name: Run Trivy vulnerability scanner in repo mode
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          ignore-unfixed: true
+          format: 'json'
+          output: 'trivy-results.json'
+          severity: 'CRITICAL,HIGH,MEDIUM,LOW'
           
       - name: Upload
         uses: ./test/.github/actions/upload
