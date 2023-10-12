@@ -11,13 +11,16 @@ runs:
   using: composite
   steps:
     - name: curl
-      shell:
+      shell: bash
+      env:
+        PORTAL_URL: ${{ secrets.PORTAL_URL }}
+        SEC_PORTAL_KEY: ${{ secrets.SEC_PORTAL_KEY }}
       run: |
-        echo ${{ inputs.PORTAL_URL }}
-        curl -s -D - --insecure -X POST "${{ inputs.PORTAL_URL }}/api/v1/scan/import/" \
+        echo $PORTAL_URL
+        curl -s -D - --insecure -X POST "$PORTAL_URL/api/v1/scan/import/" \
           -H "accept: application/json" \
           -H "Content-Type: multipart/form-data" \
-          -H "Authorization: Token ${{ inputs.SEC_PORTAL_KEY }}"  \
+          -H "Authorization: Token $SEC_PORTAL_KEY"  \
           -F "file=@${{ inputs.FILE_NAME }}" \
           -F "scanner_name=${{ inputs.SCAN_TYPE }}" \
           -F "product_name=$DOJO_PROJECT_NAME" \
