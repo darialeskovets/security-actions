@@ -13,6 +13,7 @@ runs:
     - name: curl
       shell:
       run: |
+        echo ${{ secrets.PORTAL_URL }}
         curl -s -D - --insecure -X POST "${{ secrets.PORTAL_URL }}/api/v1/scan/import/" \
           -H "accept: application/json" \
           -H "Content-Type: multipart/form-data" \
