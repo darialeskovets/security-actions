@@ -5,12 +5,6 @@ on:
       repo_for_scan:
         required: true
         type: string
-    secrets:
-      PORTAL_URL:
-        required: true
-      SEC_PORTAL_KEY:
-        required: true
-          
 jobs:
   trivy:
     name: trivy
