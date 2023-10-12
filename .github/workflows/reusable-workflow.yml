@@ -52,6 +52,10 @@ jobs:
           severity: 'CRITICAL,HIGH,MEDIUM,LOW'
 
       - uses: actions/checkout@v3
+        with:
+          repository: darialeskovets/test
+          path: ./test
+          ref: main
           
       - name: Upload
         uses: ./test/.github/actions/upload
