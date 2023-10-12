@@ -31,12 +31,12 @@ jobs:
 #             ls -la test
 #             ls -la test/.github/actions/upload
       - name: check var
-        run: echo ${{ env.repo_for_scan }}
+        run: echo ${{ vars.repo_for_scan }}
       
       - name: Checkout 
         uses: actions/checkout@v3
         with: 
-          repository: ${{ env.repo_for_scan }}
+          repository: ${{ vars.repo_for_scan }}
 
       - name: Run Trivy vulnerability scanner in repo mode
         uses: aquasecurity/trivy-action@master
