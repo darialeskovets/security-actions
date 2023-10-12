@@ -1,3 +1,11 @@
+on:
+workflow_call:
+  secrets:
+    PORTAL_URL:
+      required: true
+    SEC_PORTAL_KEY:
+      required: true
+
 name: Upload report to Portal
 runs:
   using: composite
